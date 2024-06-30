@@ -1,11 +1,13 @@
-import { Welcome } from '../components/Welcome/Welcome';
-import { ColorSchemeToggle } from '../components/ColorSchemeToggle/ColorSchemeToggle';
+// HOME PAGE
+import Grepper from "../components/Grepper"
 
+// home page
 export function HomePage() {
-  return (
-    <>
-      <Welcome />
-      <ColorSchemeToggle />
-    </>
-  );
-}
+
+
+    // html code
+    return (
+      <Grepper/>
+    );
+  }
+  
