@@ -1,6 +1,6 @@
 // Dropper.tsx
 import React, { useEffect, useState } from 'react';
-import { Group, Text, Notification, rem, Button } from '@mantine/core';
+import { Group, Text, Notification, rem, Loader, Center } from '@mantine/core';
 import { IconUpload, IconPhoto, IconX, IconCheck } from '@tabler/icons-react';
 import { Dropzone, DropzoneProps, IMAGE_MIME_TYPE } from '@mantine/dropzone';
 import { useAppDispatch, useAppSelector } from '../hooks';
@@ -86,7 +86,7 @@ export default function Dropper(props: Partial<DropzoneProps>) {
           </Group>
         </Dropzone>
 
-        {loading && <Text>Loading...</Text>}
+        {loading && <Center><Loader color="violet" /></Center>}
         {/* {extractedText && (
           <div style={{ marginTop: '20px' }}>
             <Text size="md">Extracted Text:</Text>
