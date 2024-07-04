@@ -11,4 +11,10 @@ class grep_pair(models.Model):
     regex = models.CharField(max_length=100)
 
     def __str__(self):
-        return 'image'
+        return f'string: {self.string}, regex: {self.regex}'
+
+class uploaded_image(models.Model):
+    img = models.ImageField(blank=True, null=True)
+    
+    def __str__(self):
+        return f'image: smth'

@@ -1,9 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
 import grepReducer from './features/grepSlice';
+import uploadReducer from './features/imgSlice';
+
 
 export const store = configureStore({
   reducer: {
     grep: grepReducer,
+    upload: uploadReducer,
   },
 });
 

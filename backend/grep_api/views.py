@@ -4,6 +4,21 @@ from rest_framework.decorators import api_view
 from rest_framework import status
 
 from .grep_code.agrep import grep_func
+from .grep_code.ocr import img_query
+
+# Create your views here.
+@api_view(['POST'])
+def run_upload(request):
+    print(f'REQUEST RECEIVED {request}')
+    if 'photo' in request.FILES:
+        image = request.FILES['photo']
+        try:
+            extracted_text = img_query(image)
+            return Response({'extracted_text': extracted_text}, status=status.HTTP_200_OK)
+        except Exception as e:
+            return Response({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+    else:
+        return Response({'error': 'No photo found in request'}, status=status.HTTP_400_BAD_REQUEST)
 
 @api_view(['GET'])
 def run_grep(request):

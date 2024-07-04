@@ -1,0 +1,57 @@
+
+.textareaWrapper {
+  font-size: 40px;
+}
+
+.textareaInput {
+  &:focus-within {
+    border: 1px solid var(--mantine-color-violet-filled);
+    transition: border-color 0.3s ease;
+  }
+}
+
+.textareaTrue {
+  color: green;
+}
+
+.textareaFalse {
+  color: red;
+}
+
+.gridColumn {
+  margin-left: 1px;
+  margin-right: 1px;
+
+}
+
+
+
+
+.responsiveContainer {
+    max-width: 300px;
+  
+    @media (min-width: em(400px)) {
+      max-width: 400px;
+      padding-top: 100px;
+    }
+  
+    @media (min-width: em(600px)) {
+      max-width: 600px;
+    }
+
+    @media (min-width: em(800px)) {
+      max-width: 800px;
+    }
+
+    @media (min-width: em(1100px)) {
+      max-width: 1000px;
+    }
+
+    @media (min-width: em(1500px)) {
+      max-width: 1200px;
+    }
+
+    @media (min-width: em(1900px)) {
+      max-width: 1500px;
+    }
+  }
