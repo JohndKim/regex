@@ -15,5 +15,12 @@ RUN pip install -r requirements.txt
 # copy all files over
 COPY . .
 
+# executables that run when container is initiated
+COPY ./entrypoint.sh .
+
+ENTRYPOINT [ "sh", "/backend/entrypoint.sh" ]
+
 # opens this port to requests
 EXPOSE 8000
+
+# CMD ["python", "manage.py", "runserver"]

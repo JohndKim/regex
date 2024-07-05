@@ -1,0 +1,100 @@
+version: "3.8"
+
+services:
+  backend:
+    build:
+      context: ./backend
+    # volumes:
+    #   - static:/static
+    ports:
+      - "8000:8000"
+
+  frontend:
+    build:
+      context: ./frontend
+    # volumes:
+    #   - frontend:/frontend/build
+    ports:
+      - "3000:3000"
+    command: ["serve", "-s", "dist"]
+
+  nginx:
+    build:
+      context: ./nginx
+    # volumes:
+    #   - static:/static
+    #   - frontend:/var/www/frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+      - frontend
+
+volumes:
+  static:
+  frontend:
+# version: "3.8"
+
+# services:
+#   backend:
+#     volumes:
+#       - static:/static
+#     build:
+#       context: ./backend
+#     ports:
+#       - "8000:8000"
+#   frontend:
+#     build:
+#       context: ./frontend
+#     volumes:
+#       - frontend:/frontend/build
+#   nginx:
+#     build:
+#       context: ./nginx
+#     volumes:
+#       - static:/static
+#       - frontend:/var/www/frontend
+#     ports:
+#       - "80:80"
+#     depends_on:
+#       - backend
+#       - frontend
+
+# volumes:
+#   static:
+#   frontend:
+
+# version: "3.8"
+
+# services:
+#   backend:
+#     build:
+#       context: ./backend
+#       dockerfile: Dockerfile
+#     volumes:
+#       - ./backend:/backend
+#       - static_volume:/static
+#     expose:
+#       - "8000"
+#   frontend:
+#     build:
+#       context: ./frontend
+#       dockerfile: Dockerfile
+#     volumes:
+#       - ./frontend:/frontend
+#     run:
+#       - npm run build
+#     command: ["npm", "start"]
+
+#   nginx:
+#     build: ./nginx
+#     volumes:
+#       - static_volume:/static
+#     ports:
+#       - "80:80"
+#     depends_on:
+#       - backend
+#       - frontend
+
+# volumes:
+#   static_volume:

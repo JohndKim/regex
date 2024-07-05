@@ -6,8 +6,8 @@ def grep_func(w, regex):
     nfa = re_to_nfa(regex)  
 
     accept, path = match(nfa, w)
-    print(nfa.get_json_info())
-    print(path)
+    # print(nfa.get_json_info())
+    # print(path)
     if accept: return True, w, "path"
     return False, w, None
     
